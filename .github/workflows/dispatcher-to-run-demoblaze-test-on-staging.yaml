@@ -1,0 +1,18 @@
+name: Dispatcher to run demoblaze test on staging environment
+on:
+  push:
+    branches:
+      - feature/CreateDispatcher
+  workflow_dispatch:
+
+jobs:
+  execute-dispatcher-test:
+    name: Execute dispatcher test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          repository: yesidhernandez/BDDAutomationDemoblaze
+          event-type: run-demoblaze-scenarios-on-staging
