@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Repository Dispatch
+      - name: Repository Dispatcher
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.DEMOBLAZE_PERSONAL_ACCESS_TOKEN }}
