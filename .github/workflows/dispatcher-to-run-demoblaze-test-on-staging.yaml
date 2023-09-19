@@ -1,8 +1,7 @@
 name: Dispatcher to run demoblaze test on staging environment
 on:
-  push:
-    branches:
-      - feature/CreateDispatcher
+  schedule:
+    - cron: '00 15 30 * *'
   workflow_dispatch:
 
 jobs:
@@ -14,6 +13,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: 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
+          token: ${{ secrets.DEMOBLAZE_PERSONAL_ACCESS_TOKEN }}
           repository: yesidhernandez/BDDAutomationDemoblaze
           event-type: run-demoblaze-scenarios-on-staging
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
