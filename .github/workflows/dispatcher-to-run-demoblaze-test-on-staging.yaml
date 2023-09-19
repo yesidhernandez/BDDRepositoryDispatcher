@@ -14,6 +14,6 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: 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
+          token: public_repo
           repository: yesidhernandez/BDDAutomationDemoblaze
           event-type: run-demoblaze-scenarios-on-staging
