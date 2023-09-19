@@ -1,5 +1,7 @@
 name: Dispatcher to run demoblaze test on staging environment
 on:
+  schedule:
+    - cron: '00 15 30 * *'
   push:
     branches:
       - feature/DispatcherTest
@@ -11,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Repository Dispatcher
+      - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.DEMOBLAZE_PERSONAL_ACCESS_TOKEN }}
